@@ -1,9 +1,6 @@
-package manuelsenatore.ProjectW4.entities;
+package com.example.java_venerdi_s5.entities;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.List;
@@ -13,6 +10,8 @@ import java.util.List;
 @Setter
 @ToString
 @NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class Citta {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -22,9 +21,9 @@ public class Citta {
     @OneToMany(mappedBy = "citta")
     @ToString.Exclude
     private List<Edificio> edifici;
-    private String name;
+    private String nome;
 
     public Citta(String name) {
-        this.name = name;
+        this.nome = name;
     }
 }

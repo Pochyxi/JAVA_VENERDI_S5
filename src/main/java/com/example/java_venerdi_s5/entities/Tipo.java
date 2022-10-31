@@ -1,4 +1,4 @@
-package manuelsenatore.ProjectW4.entities;
+package com.example.java_venerdi_s5.entities;
 
 public enum Tipo {
     PRIVATO,

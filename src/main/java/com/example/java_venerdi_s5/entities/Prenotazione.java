@@ -1,16 +1,20 @@
-package manuelsenatore.ProjectW4.entities;
+package com.example.java_venerdi_s5.entities;
 
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalDate;
 
 @Entity
+@Table(name = "prenotazioni")
 @Getter
 @Setter
 @ToString
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
 public class Prenotazione {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,8 +24,10 @@ public class Prenotazione {
     private LocalDate data;
 
     @OneToOne
+    @JsonBackReference
     private Postazione postazione;
     @ManyToOne
-    @JoinColumn(name = "user_id")
-    private User user;
+    @JsonManagedReference
+    @JoinColumn(name = "utente_id")
+    private Utente utente;
 }
